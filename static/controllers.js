@@ -32,4 +32,19 @@ controllers.controller('home_controller', function($scope, $http, spinner) {
 			console.log(err);
 			$scope.spinner.stop();
 		});
+
+	$scope.state = function(p, b)
+	{
+		if (p == b)
+		{
+			return 'best';
+		}
+
+		if (p > 200)
+		{
+			return 'worst';
+		}
+
+		return 'normal';
+	}
 });
