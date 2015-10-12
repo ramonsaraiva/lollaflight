@@ -5,17 +5,21 @@ from flask.ext.restful import Api
 
 from models import db
 
+from resources import Check
+from resources import Surveys
+
 app = Flask(__name__)
 app.config.from_object(__name__)
 
 app.config.update({
-	'SQLALCHEMY_DATABASE_URI': 'postgresql://x:x@localhost/x'
+	'SQLALCHEMY_DATABASE_URI': 'postgresql://lolla:lolla@localhost/lolla'
 })
 
 db.init_app(app)
 api = Api(app)
 
-#api.add_resource(Resource, '/url/')
+api.add_resource(Surveys, '/surveys/')
+api.add_resource(Check, '/check/')
 
 @app.route('/')
 def send_template():
