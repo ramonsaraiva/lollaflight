@@ -213,7 +213,7 @@ def tam_parse(data):
 
 class Surveys(Resource):
 	def get(self):
-		return [s.serialize for s in Survey.query.order_by(Survey.date.desc()).all()]
+		return [s.serialize for s in Survey.query.order_by(Survey.date.desc()).limit(5)]
 
 class Check(Resource):
 	def post(self):
